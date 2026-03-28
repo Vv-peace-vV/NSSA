@@ -2,7 +2,9 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a2a4a">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <title>국가 특수 안보 관리청 — NSSA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1288,17 +1290,226 @@ body {
 }
 
 /* ═══════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE — iOS · Android · Web
+   breakpoints: 480 / 640 / 768 / 1024
 ═══════════════════════════════════ */
+
+/* ── 공통: 터치 디바이스 tap highlight 제거 ── */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* ─────────────── 1024px 이하 ─────────────── */
+@media (max-width: 1024px) {
+  .pub-main, .cls-main { padding: 32px 20px; }
+  .pub-hero-inner { padding: 0 20px; }
+  .pub-header-inner { padding: 0 20px; }
+  .pub-footer-inner, .cls-footer-inner { padding: 0 20px; }
+  .cls-hero-inner { padding: 0 20px; }
+}
+
+/* ─────────────── 768px 이하 (태블릿·대형폰) ─────────────── */
 @media (max-width: 768px) {
-  .pub-hero h1 { font-size: 1.5rem; }
+  /* hero */
+  .pub-hero { padding: 40px 0 36px; }
+  .pub-hero h1 { font-size: 1.55rem; line-height: 1.3; }
   .pub-hero-meta { display: none; }
+  .pub-hero-sub { font-size: 0.82rem; }
+  .pub-hero-slogan { font-size: 0.92rem; }
+
+  /* top bar */
+  .top-bar { font-size: 0.65rem; }
+  .top-bar span { margin: 0 8px; }
+
+  /* nav: 숨김 (모바일에서 공간 부족) */
   .pub-nav { display: none; }
+
+  /* pub header */
+  .pub-logo-block { padding: 12px 16px 12px 0; gap: 12px; }
+  .pub-seal { width: 40px; height: 40px; }
+  .pub-org-name .ko { font-size: 0.92rem; }
+  .pub-org-name .en { font-size: 0.62rem; }
+
+  /* section heading */
+  .section-heading h2 { font-size: 1rem; }
+  .section-en { display: none; }
+
+  /* cards */
   .cards-grid { grid-template-columns: 1fr; }
+
+  /* pub table */
+  .pub-table { font-size: 0.8rem; }
+  .pub-table th { width: 110px; padding: 8px 12px; }
+  .pub-table td { padding: 8px 12px; }
+
+  /* org chart */
+  .oc-pillars { grid-template-columns: 1fr; gap: 16px; }
+  .oc-branch-line {
+    width: 2px;
+    height: 32px;
+    border-right: none;
+    border-top: none;
+    border-left: 2px solid var(--pub-navy);
+    border-bottom: none;
+  }
+  .oc-branch-wrap { justify-content: center; }
+  .oc-node { min-width: 160px; padding: 10px 18px; }
+  .oc-node-label { font-size: 0.85rem; }
+  .oc-child { flex-wrap: wrap; gap: 4px; }
+  .oc-child-pos { border-left: none; border-right: none; padding: 0; min-width: auto; }
+  .oc-child-name { min-width: auto; }
+
+  /* rank */
+  .rank-item { flex-wrap: wrap; gap: 6px; }
+  .rank-desc { margin-left: 0; width: 100%; }
+
+  /* floor */
+  .floor-list { grid-template-columns: 100px 1fr; }
+  .floor-zone { font-size: 0.7rem; padding: 8px 10px; }
+  .floor-content { font-size: 0.78rem; padding: 8px 12px; }
+
+  /* notice / info */
+  .info-box { font-size: 0.84rem; padding: 16px 18px; }
+  .notice { font-size: 0.78rem; }
+  .player-note { font-size: 0.8rem; }
+
+  /* classified */
+  .cls-hero { padding: 36px 0 32px; }
+  .cls-hero h1 { font-size: 1.45rem; }
+  .cls-hero-id { font-size: 0.62rem; }
+  .cls-access-strip { gap: 14px; }
+  .cls-access-item { font-size: 0.65rem; }
+  .cls-header-warning { display: none; }
+
+  /* threat grid */
+  .threat-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
+
+  /* ampoule */
+  .ampoule-grid { grid-template-columns: 1fr; }
+
+  /* hypothesis */
+  .hypothesis-item { flex-direction: column; gap: 6px; }
+
+  /* timeline */
+  .timeline { padding-left: 20px; }
+  .timeline-item { gap: 10px; }
+  .timeline-year { min-width: 68px; font-size: 0.72rem; }
+  .timeline-content { font-size: 0.8rem; }
+
+  /* glitch zone */
+  .glitch-warning { font-size: 1.8rem; }
+  .glitch-text { font-size: 0.85rem; }
+  .glitch-sub { font-size: 0.7rem; }
+
+  /* under block */
+  .under-block p, .under-block li { font-size: 0.8rem; }
+
+  /* whitout */
+  .whiteout-body { font-size: 0.75rem; padding: 16px; }
+  .whiteout-body .indent { padding-left: 10px; }
+
+  /* cls table */
+  .cls-table { font-size: 0.78rem; }
+  .cls-table th { padding: 7px 12px; }
+  .cls-table td { padding: 8px 12px; }
+
+  /* cls section head */
+  .cls-section-head h2 { font-size: 0.95rem; }
+  .cls-section-en { display: none; }
+
+  /* pub footer */
+  .pub-footer-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .pub-footer-inner div:last-child { text-align: left; }
+}
+
+/* ─────────────── 480px 이하 (소형폰 · iPhone SE 등) ─────────────── */
+@media (max-width: 480px) {
+  /* hero */
+  .pub-hero { padding: 28px 0 28px; }
+  .pub-hero h1 { font-size: 1.25rem; }
+  .pub-hero-badge { font-size: 0.6rem; }
+  .pub-hero-slogan { font-size: 0.82rem; }
+
+  /* top bar */
+  .top-bar span:nth-child(2) { display: none; }
+
+  /* header */
+  .pub-org-name .en { display: none; }
+  .pub-seal { width: 36px; height: 36px; }
+
+  /* section */
+  .section-num { font-size: 0.62rem; padding: 3px 7px; }
+  .section-heading h2 { font-size: 0.92rem; }
+
+  /* pub table: 세로 스택 */
+  .pub-table th, .pub-table td { display: block; width: 100%; }
+  .pub-table th {
+    width: 100%;
+    background: var(--pub-navy);
+    border-bottom: none;
+    padding: 6px 12px;
+  }
+  .pub-table td { padding: 8px 12px; border-bottom: 1px solid var(--pub-border); }
+  .pub-table tr { display: block; border-bottom: 2px solid var(--pub-border); }
+
+  /* org chart */
+  .oc-node { min-width: 140px; padding: 8px 14px; }
+  .oc-node-label { font-size: 0.8rem; }
+  .oc-pillar-name { font-size: 0.88rem; }
+  .oc-pillar-tag { font-size: 0.6rem; }
+  .oc-child-name { font-size: 0.78rem; }
+  .oc-child-role { font-size: 0.72rem; }
+
+  /* floor: 세로 스택 */
+  .floor-list { grid-template-columns: 1fr; }
+  .floor-zone {
+    background: var(--pub-navy);
+    border-bottom: none;
+    font-size: 0.72rem;
+    padding: 6px 14px;
+  }
+  .floor-content {
+    border-bottom: 2px solid var(--pub-border);
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+  .floor-zone.restricted + .floor-content.restricted {
+    border-bottom-color: var(--pub-accent);
+  }
+
+  /* threat grid: 1열 */
   .threat-grid { grid-template-columns: 1fr; }
-  .cls-hero h1 { font-size: 1.4rem; }
-  .org-sub-name { min-width: 130px; font-size: 0.78rem; }
-  .org-sub-role { font-size: 0.78rem; }
+  .threat-code { font-size: 1.4rem; }
+
+  /* cls hero */
+  .cls-hero h1 { font-size: 1.2rem; }
+  .cls-access-strip { flex-direction: column; gap: 6px; }
+
+  /* whiteout */
+  .whiteout-seal { font-size: 0.6rem; padding: 5px 12px; }
+
+  /* rank */
+  .rank-badge { font-size: 0.62rem; padding: 3px 8px; }
+  .rank-name { font-size: 0.8rem; }
+
+  /* glitch */
+  .glitch-warning { font-size: 1.4rem; letter-spacing: 0.08em; }
+  .glitch-sub { font-size: 0.65rem; letter-spacing: 0.06em; }
+  .glitch-content { padding: 24px 16px; }
+
+  /* cls table: 세로 스택 */
+  .cls-table th, .cls-table td { display: block; width: 100%; }
+  .cls-table th { border-bottom: none; }
+  .cls-table td { border-bottom: 1px solid var(--cls-border); }
+  .cls-table tr { display: block; border-bottom: 2px solid var(--cls-border); }
+
+  /* footer */
+  .cls-footer-inner { flex-direction: column; gap: 12px; }
+
+  /* timeline */
+  .timeline { padding-left: 16px; }
+  .timeline-item { flex-direction: column; gap: 2px; }
+  .timeline-year { font-size: 0.7rem; }
+  .timeline-content { font-size: 0.78rem; }
+  .timeline-item::before { top: 4px; }
 }
 </style>
 </head>
